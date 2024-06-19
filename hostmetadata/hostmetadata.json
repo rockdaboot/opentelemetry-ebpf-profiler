@@ -59,6 +59,11 @@
     "type": "bool"
   },
   {
+    "name": "agent:config_elastic_mode",
+    "field": "profiling.agent.config.elastic_mode",
+    "type": "bool"
+  },
+  {
     "name": "agent:config_no_kernel_version_check",
     "field": "profiling.agent.config.no_kernel_version_check",
     "type": "bool"
@@ -109,6 +114,10 @@
     "type": "uint16"
   },
   {
+    "name": "agent:env_https_proxy",
+    "obsolete": true
+  },
+  {
     "name": "host:ip",
     "field": "profiling.host.ip",
     "type": "string"
@@ -125,8 +134,29 @@
     "type": "string"
   },
   {
+    "comment":  "This field is replaced by host:arch, but we want to support both for a while. So don't obsolete it.",
     "name": "host:machine",
     "field": "profiling.host.machine",
+    "type": "string"
+  },
+  {
+    "name": "host:arch",
+    "field": "host.arch",
+    "type": "string"
+  },
+  {
+    "name": "host:type",
+    "field": "host.type",
+    "type": "string"
+  },
+  {
+    "name": "cloud:provider",
+    "field": "cloud.provider",
+    "type": "string"
+  },
+  {
+    "name": "cloud:region",
+    "field": "cloud.region",
     "type": "string"
   },
   {
@@ -437,6 +467,7 @@
     "type": "string"
   },
   {
+    "comment":  "This field is replaced by host:type, but we want to support both for a while. So don't obsolete it.",
     "name": "ec2:instance-type",
     "field": "ec2.instance_type",
     "type": "string"
@@ -502,6 +533,7 @@
     "type": "string"
   },
   {
+    "comment":  "This field is replaced by cloud:region, but we want to support both for a while. So don't obsolete it.",
     "name": "ec2:placement/region",
     "field": "ec2.placement.region",
     "type": "string"
@@ -537,6 +569,7 @@
     "type": "string"
   },
   {
+    "comment":  "This field is replaced by host:type, but we want to support both for a while. So don't obsolete it.",
     "name": "azure:compute/vmsize",
     "field": "azure.compute.vmsize",
     "type": "string"
@@ -552,6 +585,7 @@
     "type": "string"
   },
   {
+    "comment":  "This field is replaced by cloud:region, but we want to support both for a while. So don't obsolete it.",
     "name": "azure:compute/location",
     "field": "azure.compute.location",
     "type": "string"
@@ -597,6 +631,7 @@
     "type": "string"
   },
   {
+    "comment":  "This field is replaced by host:type, but we want to support both for a while. So don't obsolete it.",
     "name": "gce:instance/machine-type",
     "field": "gce.instance.machine_type",
     "type": "string"
@@ -612,6 +647,7 @@
     "type": "string"
   },
   {
+    "comment":  "This field is replaced by cloud:region, but we want to support both for a while. So don't obsolete it.",
     "name": "gce:instance/zone",
     "field": "gce.instance.zone",
     "type": "string"
