@@ -20,9 +20,6 @@ import (
 	"time"
 
 	lru "github.com/elastic/go-freelru"
-	"github.com/open-telemetry/opentelemetry-ebpf-profiler/libpf"
-	"github.com/open-telemetry/opentelemetry-ebpf-profiler/libpf/xsync"
-	"github.com/open-telemetry/opentelemetry-ebpf-profiler/util"
 	log "github.com/sirupsen/logrus"
 	"github.com/zeebo/xxh3"
 	"go.opentelemetry.io/otel/attribute"
@@ -34,6 +31,10 @@ import (
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials"
 	"google.golang.org/grpc/credentials/insecure"
+
+	"github.com/open-telemetry/opentelemetry-ebpf-profiler/libpf"
+	"github.com/open-telemetry/opentelemetry-ebpf-profiler/libpf/xsync"
+	"github.com/open-telemetry/opentelemetry-ebpf-profiler/util"
 )
 
 var (
@@ -771,8 +772,7 @@ func getSampleAttributes(profile *profiles.Profile,
 }
 
 // getDummyMappingIndex inserts or looks up an entry for interpreted FileIDs.
-func getDummyMappingIndex(fileIDtoMapping map[libpf.FileID]uint64,
-	stringMap map[string]uint32, profile *profiles.Profile,
+func getDummyMappingIndex(fileIDtoMapping map[libpf.FileID]uint64, stringMap map[string]uint32, profile *profiles.Profile,
 	fileID libpf.FileID) uint64 {
 	var locationMappingIndex uint64
 	if tmpMappingIndex, exists := fileIDtoMapping[fileID]; exists {
